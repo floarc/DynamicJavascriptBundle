@@ -16,7 +16,8 @@
         "behat/mink-extension":         "*",
         "behat/mink-browserkit-driver": "*",
         "symfony/monolog-bundle":       "*@stable",
-        "doctrine/doctrine-bundle":     "~1.2"
+        "doctrine/doctrine-bundle":     "~1.2",
+        "doctrine/orm":                 "~2.2,>=2.2.3"
     },
     "autoload": {
         "psr-0": { "Floarc\\DynamicJavascriptBundle": "" }
