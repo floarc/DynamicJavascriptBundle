@@ -1,0 +1,24 @@
+{
+    "name": "floarc/DynamicJavascriptBundle",
+    "type": "symfony-bundle",
+    "description": "DynamicJavascript Bundle",
+    "license": "MIT",
+    "require": {
+        "php":                           ">=5.3.3",
+        "symfony/symfony":               "2.3.x-dev",
+        "sensio/framework-extra-bundle": "2.3.x-dev",
+		"symfony/filesystem": 			 "2.3.x-dev",
+		"doctrine/common": 				 "2.3.x-dev"
+    },
+    "require-dev": {
+        "behat/behat":                  "*@stable",
+        "behat/symfony2-extension":     "*@stable",
+        "behat/mink-extension":         "*",
+        "behat/mink-browserkit-driver": "*",
+        "symfony/monolog-bundle":       "*@stable"
+    },
+    "autoload": {
+        "psr-0": { "Floarc\\DynamicJavascriptBundle": "" }
+    },
+    "target-dir": "Floarc/DynamicJavascriptBundle"
+}
