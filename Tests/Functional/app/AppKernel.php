@@ -16,7 +16,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Floarc\DynamicJavascriptBundle\FloarcDynamicJavascriptBundle(),
-			new Doctrine\Bundle\DoctrineBundle\DoctrineBundle()
+			//new Doctrine\Bundle\DoctrineBundle\DoctrineBundle()
         );
     }
 
