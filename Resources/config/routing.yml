@@ -1,0 +1,9 @@
+_demo_djs:
+    resource: "@FloarcDynamicJavascriptBundle/Controller/DefaultController.php"
+    type:     annotation
+    prefix:   /djs
+    
+_dyn_djs:
+    resource: "@FloarcDynamicJavascriptBundle/Controller/DynamicJavascriptController.php"
+    type:     annotation
+    prefix:   /dynjs

@@ -1,0 +1,18 @@
+{% extends "TwigBundle::layout.html.twig" %}
+
+{% block head %}
+    <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+    {#<link rel="stylesheet" href="{{ asset('bundles/floarcdynamicjavascript/css/demo.css') }}" />#}
+    <script src="{{ asset('bundles/floarcdynamicjavascript/js/generated.js') }}" type="text/javascript" />
+{% endblock %}
+
+{% block title 'floarcdynamicjavascript Bundle' %}
+
+{% block body %}
+    
+    <div class="block">
+        {% block content %}{% endblock %}
+    </div>
+
+
+{% endblock %}
