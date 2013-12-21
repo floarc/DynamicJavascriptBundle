@@ -14,8 +14,8 @@ class DynamicJavascriptController extends Controller
      */
     public function indexAction($name)
     {
-        //return array('name' => $name);
-        return $this->render('FloarcDynamicJavascriptBundle:DynamicJavascript:index.html.twig', array('name' => $name));
+        return array('name' => $name);
+        //return $this->render('FloarcDynamicJavascriptBundle:DynamicJavascript:index.html.twig', array('name' => $name));
     }
     
     /**

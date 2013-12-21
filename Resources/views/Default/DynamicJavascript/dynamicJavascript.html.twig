@@ -1,0 +1,39 @@
+<!doctype html>
+  <head>
+    <meta charset="utf-8">
+    <title>dynamicJavascript Exemples</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    {% javascripts '@FloarcDynamicJavascriptBundle/Resources/public/js/person.js'%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    
+    {% javascripts '@FloarcDynamicJavascriptBundle/Resources/public/js/concatened.js'%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}    
+        
+  </head>
+  <body>
+    <header>
+        <div class="container">
+        dynamicJavascript Exemples
+        </div>
+    </header>
+    </container>
+        <div>
+        Exemple of generation of one single js.<br />
+        You should have seen an alert saying :<br />
+        "Luna is a girl who has 36 years and mesure 1.75m."<br />
+        <br />
+        <br />
+        Exemple of generation of several js concatened in one single js.<br />
+        You should have seen 2 alert saying :<br />
+        "Let me introduce John Doe"<br />
+        "Let me introduce Jim Carter"<br />         
+        </div>
+        
+        <div>
+        </div>        
+    </container>
+    </body>
+</html>

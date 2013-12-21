@@ -1,4 +1,4 @@
-acme_demo:
-    resource: "@FloarcDemoBundle/Controller/"
+_dynjs_demo:
+    resource: "@FloarcDynamicJavascriptBundle/Controller/"
     type:     annotation
     prefix:   /

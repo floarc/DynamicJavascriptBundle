@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/hello/{name}", name="_djs")
+     * @Route("/hello/{name}", name="_demo_dynjs_hello")
      * @Template()
      */
     public function indexAction($name)
@@ -18,7 +18,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/contact", name="_djs_contact")
+     * @Route("/contact", name="_demo_dynjs_contact")
      * @Template()
      */
     public function contactAction()
@@ -82,6 +82,36 @@ class DefaultController extends Controller
     	));
     	*/    	
     	
+    }
+
+    
+    /**
+     * @Route("/dynamic_javascript", name="_demo_dynjs_dynamic_javascript")
+     * @Template()
+     */
+    public function dynamicJavascriptAction()
+    {
+   	 
+    	$templating = $this->get('templating');
+   	 
+    	$dynjs = $this->get('dyn_js');
+    	/*
+    	$dynjs->addDynJs("FloarcDynamicJavascriptBundle:DynamicJavascript:dynjs.html.twig", array("age"=>"3","name"=>"Luna"), "@FloarcDynamicJavascriptBundle/Resources/public/js/girl.js" );
+    	$dynjs->addDynJs("FloarcDynamicJavascriptBundle:DynamicJavascript:dynjs.html.twig", array("foo"=>"bar","name"=>"John"), "@FloarcDynamicJavascriptBundle/Resources/public/js/mydyn.js" );
+    	$dynjs->addDynJs("FloarcDynamicJavascriptBundle:DynamicJavascript:dynjs.html.twig", array("foo"=>"tod","name"=>"Jim"), "@FloarcDynamicJavascriptBundle/Resources/public/js/mydyn.js" );
+    	*/
+
+    	//$dynjs->addDynJs("FloarcDynamicJavascriptBundle:Default:DynamicJavascript:person.html.twig", 	 array("name"=>"Luna", "sex"=>"girl", "age"=>"36", "height"=>"1.75"), "@FloarcDynamicJavascriptBundle/Resources/public/js/person.js");
+    	//$dynjs->addDynJs("FloarcDynamicJavascriptBundle:DynamicJavascript:person.html.twig", 	 array("name"=>"Luna", "sex"=>"girl", "age"=>"36", "height"=>"1.75"), "@FloarcDynamicJavascriptBundle/Resources/public/js/person.js");
+    	
+    	//$dynjs->addDynJs("FloarcDynamicJavascriptBundle:DynamicJavascript:dynjs.html.twig", 	 array("name"=>"Luna", "sex"=>"girl", "age"=>"36", "height"=>"1.75"), "@FloarcDynamicJavascriptBundle/Resources/public/js/person.js");
+    	//$dynjs->addDynJs("@FloarcDynamicJavascriptBundle:Default:DynamicJavascript:concatened.html.twig", array("name"=>"John","family_name"=>"Doe"), 						  "@FloarcDynamicJavascriptBundle/Resources/public/js/concatened.js");
+    	//$dynjs->addDynJs("@FloarcDynamicJavascriptBundle:Default:DynamicJavascript:concatened.html.twig", array("name"=>"Jim","family_name"=>"Carter"), 						  "@FloarcDynamicJavascriptBundle/Resources/public/js/concatened.js");    	
+    	//$dynjs->dumpDynJs();
+    	//die("dynamicJavascript");
+    	
+    	//return $this->render('FloarcDynamicJavascriptBundle:DynamicJavascript:test.html.twig', array());
+    	return array('text' => "Dynamic Js generated");
     }    
     
     
