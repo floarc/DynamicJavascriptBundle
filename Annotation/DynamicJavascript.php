@@ -1,5 +1,6 @@
 <?php
-namespace \Floarc\DynamicJavascriptBundle\Annotation;
+
+namespace Floarc\DynamicJavascriptBundle\Annotation;
 
 /**
  * @Annotation
