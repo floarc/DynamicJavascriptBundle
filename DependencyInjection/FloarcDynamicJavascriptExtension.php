@@ -22,19 +22,9 @@ class FloarcDynamicJavascriptExtension extends Extension
 	
 	private $output;
 	
-	private $parameters;
-
-	private $response;	
-	
-	private $template;
-	
 	private $dynJsArray; 
 	
-	private $cache;
-	
 	private $templating;
-	
-	
 	
     /**
      * {@inheritDoc}
@@ -49,18 +39,9 @@ class FloarcDynamicJavascriptExtension extends Extension
                 
     }
     
-    
-    //public function __construct($name,$param,$foo)
-    //public function __construct()
     public function __construct(ContainerInterface $container = null)
-    //public function __construct(ContainerInterface $container = null)
     {
     	$this->container = $container;
-    	/*
-    	$this->templating = $templating;
-    	$this->cache = $cache;
-    	*/
-    	
     	$this->dynJsArray=array();
     	
     }    
@@ -75,8 +56,6 @@ class FloarcDynamicJavascriptExtension extends Extension
     public function addDynJs($template = null, $parameters = null, $output = null )
     {
     	
-    	$this->template = $template;
-    	$this->parameters = $parameters;
     	$this->dynJsArray[$output][] = array("template"=>$template, "parameters"=>$parameters, "output"=>$output);
     	return $this;
     }
@@ -92,18 +71,15 @@ class FloarcDynamicJavascriptExtension extends Extension
      			$content = "";
      			if(count($dynJs)>0){
      				foreach ($dynJs as $k => $dJs) {
-     					if($content == ""){$content .= "\n";}
+     					if($content != ""){$content .= "\r\n";}
      					$content .= $this->container->get('templating')->render($dJs["template"], $dJs["parameters"]);
      				}
      			}
-     			
      			$path = $this->getResourcePath($key);
+     			$path = str_replace("\\", "/", $path);
      			$this->container->get('filesystem')->dumpFile($path, $content);
-     			
      		}
-     		
      	}
-    	
     	return $this;
     }    
     
@@ -117,14 +93,12 @@ class FloarcDynamicJavascriptExtension extends Extension
     public function getContent()
     {
     	
-    	//echo "cache ".$this->cache->fetch('foo')."<br />";
-    	//echo "cache ".$this->container->get('cache')->fetch('foo')."<br />";
-    	//return $this->templating->render($this->getTemplate(), $this->getParameters());
     	return $this->container->get('templating')->render($this->getTemplate(), $this->getParameters());
     }    
 
     public function getResourcePath($resource)
     {
+    	
     	$path = "";
    	
     	if ((stripos($resource, '/') !== false) && (stripos($resource, '\\') !== false)) {
@@ -138,7 +112,6 @@ class FloarcDynamicJavascriptExtension extends Extension
     	if (stripos($resource, '\\') !== false){
     		$dir_separator = "\\";
     	} 
-    	   	
    	
     	$tab_resource = explode($dir_separator, $resource);
     	$new_tab_resource = $tab_resource;
@@ -149,80 +122,11 @@ class FloarcDynamicJavascriptExtension extends Extension
     		if(substr($tab_resource[0], 0, 1)== "@"){
     			$bundle_path=$this->container->get('kernel')->locateResource($tab_resource[0]);
     			unset($new_tab_resource[0]);
-    			$path = $bundle_path.implode($dir_separator, $new_tab_resource);
+    			//$path = $bundle_path.implode("/", $new_tab_resource);
+    			$path = $bundle_path.implode("/", $new_tab_resource);
     		}
     		
     	}
     	return $path;
-    	
-   	
     }    
-    
-
-    public function generateOutput()
-    {
-    	$target = $this->getOutput();
-    	if (false === @file_put_contents($target, $this->getContent())) {
-    		throw new \RuntimeException('Unable to write file '.$target);
-    	}    	
-    }    
-
-    
-    public function getOutput()
-    {
-    	return $this->output;
-    }
-    
-    public function setOutput($output)
-    {
-    	$this->output = $output;
-    }    
-
-    public function getParameters()
-    {
-    	return $this->parameters;
-    }
-    
-    public function setParameters($parameters)
-    {
-    	$this->parameters = $parameters;
-    }
-
-    public function getResponse()
-    {
-    	return $this->response;
-    }
-    
-    public function setResponse($response)
-    {
-    	$this->response = $response;
-    }
-
-    public function getTemplate()
-    {
-    	return $this->template;
-    }
-    
-    public function setTemplate($template)
-    {
-    	$this->template = $template;
-    }    
-
-    
-    /**
-     * Renders a view.
-     *
-     * @param string   $view       The view name
-     * @param array    $parameters An array of parameters to pass to the view
-     * @param Response $response   A response instance
-     *
-     * @return Response A Response instance
-     */
-    /*
-    public function render($view, array $parameters = array(), Response $response = null)
-    {
-    	return $this->container->get('templating')->renderResponse($view, $parameters, $response);
-    }
-    */    
-    
 }

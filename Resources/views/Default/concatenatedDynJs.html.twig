@@ -1,0 +1,35 @@
+<!doctype html>
+  <head>
+    <meta charset="utf-8">
+    <title>dynamicJavascript Exemples</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    {% javascripts 
+    '@FloarcDynamicJavascriptBundle/Resources/public/js/concatenated.js' 
+    output='js/concatenated_output.js' 
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}   
+    
+        
+  </head>
+  <body>
+    <header>
+        <div class="container">
+        dynamicJavascript Exemples
+        </div>
+    </header>
+    </container>
+        <div>
+        Exemple of generation of several js concatenated in one single js.<br />
+        You should have seen 2 alert saying :<br />
+        "Let me introduce John Doe"<br />
+        "Let me introduce Jim Carter"<br />
+        <br />
+        {{ text }}  
+        </div>
+        <div>
+        </div>        
+    </container>
+    </body>
+</html>

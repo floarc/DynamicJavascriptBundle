@@ -1,19 +1,4 @@
-#_demo_djs:
-#    resource: "@FloarcDynamicJavascriptBundle/Controller/DefaultController.php"
-#    type:     annotation
-#    prefix:   /djs
-    
 _demo_dynjs:
     resource: "@FloarcDynamicJavascriptBundle/Controller/DefaultController.php"
     type:     annotation
-    prefix:   /_demo_dynjs    
-
-_dynjs:
-    resource: "@FloarcDynamicJavascriptBundle/Controller/DynamicJavascriptController.php"
-    type:     annotation
-    prefix:   /dynjs
-    
-#_dyn_djs:
-#    resource: "@FloarcDynamicJavascriptBundle/Controller/DynamicJavascriptController.php"
-#    type:     annotation
-#    prefix:   /dynjs
+    prefix:   /_demo_dynjs
